@@ -1,0 +1,85 @@
+@import "tailwindcss";
+.font-zen-dots {
+    font-family: "Zen Dots", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+.custom-bg-gradient{
+    background-image: linear-gradient(to right top, #140606, #1d0c13, #211120, #1d1830, #05213f);
+}
+/* Encrypt / Decrypt (Button) */
+#cipherBtn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #0b1e3a;
+    font-family: "Zen Dots", sans-serif;
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+  }
+  
+  #cipherBtn:after {
+    content: " ";
+    width: 0%;
+    height: 100%;
+    background: #ffd401;
+    position: absolute;
+    transition: all 0.4s ease-in-out;
+    right: 0;
+  }
+  
+  #cipherBtn:hover::after {
+    right: auto;
+    left: 0;
+    width: 100%;
+  }
+  
+  #cipherBtn span {
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 18px 25px;
+    color: #fff;
+    font-size: 1.125em;
+    z-index: 20;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  #cipherBtn:hover span {
+    color: #183153;
+    animation: scaleUp 0.3s ease-in-out;
+  }
+  
+  @keyframes scaleUp {
+    0% {
+      transform: scale(1);
+    }
+  
+    50% {
+      transform: scale(0.95);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+  /* Underline */
+.custom-underline{
+    display: block;
+    width: 0%;
+    height: 1.5px;
+    transition: all .5s ease-in-out;
+}
+.underline-current{
+ width: 100%;
+ background: #ffd401; 
+}
+#encodeBtn:hover .custom-underline,
+#decodeBtn:hover .custom-underline{
+  width: 100%;
+  background: #ffd401;
+}

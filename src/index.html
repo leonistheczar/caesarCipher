@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <link rel="stylesheet" href="./css/output.css">
+    <title>Caesar Cipher</title>
+</head>
+<body class="h-screen w-full font-zen-dots custom-bg-gradient text-white">
+    <!-- Main Heading -->
+    <h1 id="title-heading" class="py-6  text-center text-4xl">Caesar Cipher</h1>
+    <p class="text-center">Convert any text into encrypted (substitution) form</p>
+
+    <!-- Main Section -->
+     <div class="container p-14 w-full m-auto">
+        <div id="cipherContainer" class="grid grid-cols-3 gap-3">
+            <!-- User Text -->
+            <form  id="userText" class="px-5 py-10 bg-[#041125] rounded-lg flex flex-col justify-evenly w-full">
+                <h2 class="text-center text-2xl">User Text</h2>
+                <input type="text" name="text" id="userTxt" class="bg-[#15161b] w-full px-3 py-6 mt-3 text-white transition-colors duration-150 rounded-[4px] focus:outline-blue-800 focus:outline-[1.5px]">
+            </form>
+            <!-- Encode -->
+            <form  id="cipherProcess" class="text-center px-5 py-10 bg-[#041125] rounded-lg">
+                <div id="encode">
+                    <div id="cipherConversion" class="flex justify-between mb-2.5 ">
+                        <a href="#" id="encodeBtn" class="text-center text-2xl">Encode
+                            <div class="custom-underline underline-current"></div>
+                        </a>
+                        <a href="#" id="decodeBtn" class="text-center text-2xl">Decode
+                            <div class="custom-underline"></div>
+                        </a>
+                    </div>
+                    <p class="pt-4">Key Shift</p>
+                    <div id="shift" class="grid grid-cols-[auto_1fr_auto] justify-between pt-5">
+                        <a href="#" id="decrement" class="text-2xl px-[0.25rem] transition-all duration-100 rounded-lg hover:bg-[#ffd401] hover:text-[#183153]">-</a>
+                        <span contenteditable="true" id="counter" class="text-2xl outline-none border-none whitespace-nowrap">0</span>
+                        <a href="#" id="increment" class="text-2xl px-[0.25rem] transition-all duration-100 rounded-lg hover:bg-[#ffd401] hover:text-[#183153]">+</a>
+                        <a href="#" id="reset" class="col-span-3 mt-2.5">Reset</a>
+                    </div>
+                </div>
+            </form>
+            <!-- Decode -->
+            <form  id="decode" class="hidden px-5 py-10 bg-[#041125] rounded-lg">
+                <h2 class="text-center text-2xl">Decode</h2>
+                <a href="#" class="text-3xl">-</a>
+                <p>Shift</p>
+                <a href="#">+</a>
+            </form>
+            <!-- Result -- Ciphered Output -- -->
+             <div id="output" class="px-5 py-10 bg-[#041125] rounded-lg flex flex-col justify-evenly">
+                <h2 class="text-center text-2xl">Ciphered Output</h2>
+                <p id="cipherOutput" class="px-3 py-6 bg-neutral-200 text-red-600 text-center"></p>
+             </div>
+             <button type="submit" for="userText" id="cipherBtn" class="col-span-3 mx-auto "><span id="cipherSpan">Encrypt</span></button>
+        </div>
+     </div>
+    <!-- JS File-->
+     <script src="./js/main.js"></script>
+</body>
+</html>
