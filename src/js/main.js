@@ -25,17 +25,17 @@ window.addEventListener("DOMContentLoaded", ()=>{
 });
 // Encryption / Decryption (Execution)
 cipherBtn.addEventListener('click', ()=>{
-if (cipherBtn.innerText == "Encrypt") {
+if (cipherBtn.children[0].innerText == "Encrypt") {
     cipher(userPrompt.value, parseInt(counter.innerText));
 }
-else if (cipherBtn.innerText == "Decrypt"){
+else if (cipherBtn.children[0].innerText == "Decrypt"){
         decipher(userPrompt.value, parseInt(counter.innerText));
     }
 });
 // Counter Function
 let count = 0;
+let counterRegEx = /^(0?[0-9]|1[0-9]|2[0-5])$/
 function updateCounter(newCount) {
-    let counterRegEx = /^(0?[0-9]|1[0-9]|2[0-5])$/
     if (counterRegEx.test(newCount.toString())) {
         count = newCount;
         counter.innerText = count;
@@ -61,7 +61,6 @@ minusCounter.addEventListener('click', ()=>{
 function resetCounter() { 
     counter.innerText = 0; 
     count = 0;
-    return counter.innerText = 0 && count == 0;
 }
 resetCounterBtn.addEventListener('click', ()=>{
     resetCounter();
@@ -73,12 +72,11 @@ counter.addEventListener('keydown', (event)=>{
 })
 
 // Caesar Cipher
-function cipher(messageToEncypt, keyShift) {
+function cipher(messageToEncrypt, keyShift) {
     let resultEncryption = "";
 
-    for (let i = 0; i < messageToEncypt.length; i++) {
-        let messageChar = messageToEncypt[i];
-        console.log(messageChar);
+    for (let i = 0; i < messageToEncrypt.length; i++) {
+        let messageChar = messageToEncrypt[i];
         if (messageChar.match(/^[a-zA-Z]$/)) {
             let base; 
             if (messageChar === messageChar.toUpperCase()){
@@ -120,4 +118,3 @@ function decipher(messageToDecrypt, keyShift) {
         cipheredMessage.innerText = resultDecryption;
         return resultDecryption;
 }
-// ENCODE DECODE BTN
